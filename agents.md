@@ -1,0 +1,24 @@
+- Drizzle is the single source of truth for schema
+    - Use `src/db/schema.ts` for schema.
+    - NEVER create migrations; just change the schema in code (Drizzle will automatically sync)
+    - Ensure you also use drizzle types
+    - Raw SQL in `src/lib/server/sql/functions.ts`
+- Always make sure you are writing up to date Svelte 5.0 with correct runes
+    - IMPORTANT: $derived.by() accepts a function as its argument
+    - e.g. onclick instead of on:click
+    - e.g. = $effect() instead of old $:
+    - e.g. = $props() instead of export let
+    - There is no 'dispatch' in svelte 5
+- When doing styling, always use extremely BASIC and CLEAN tailwind. always keep the styling minimal
+- You should also separate presentation from logic as much as possible
+- You should keep your code incredibly simple and clean, and modular
+- Styling
+    - keep styling simple and straightforward with tailwind
+    - use flex over grid unless necessary
+    - use rounded-sm, border-border
+- Text MUST exclusively be styled using:
+    - For colors: text-title, text-accent, text-muted, text-base, text-faint
+    - For weight: font-medium, font-bold (or default)
+    - For size: text-lg, text-sm, text-xs (or default)
+- Make sure the code is clean by reusing, refactoring, and
+  ▌generalizing.

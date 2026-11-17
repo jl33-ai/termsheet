@@ -1,0 +1,37 @@
+/* Market-linked highlights: dotted underline, color on hover */
+.tiptap .market-mark,
+.content-text .market-mark {
+	color: #333;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: #333;
+	text-underline-offset: 2px;
+	cursor: pointer;
+	transition:
+		color 150ms ease,
+		text-decoration-color 150ms ease;
+}
+.tiptap .market-mark:hover,
+.content-text .market-mark:hover {
+	color: rgb(136, 136, 136);
+	text-decoration-color: rgb(136, 136, 136);
+}
+
+/* Show linked outcome last price as subscript at the end, underline extends */
+.tiptap .market-mark::after,
+.content-text .market-mark::after {
+	content: attr(data-last-price);
+	font-size: 0.75em;
+	vertical-align: sub;
+	margin-left: 0.125rem;
+	color: currentColor;
+}
+
+/* Remove default focus ring and add top spacing */
+.tiptap {
+	margin-top: 0.5rem;
+}
+.tiptap:focus,
+.tiptap:focus-visible {
+	outline: none;
+}

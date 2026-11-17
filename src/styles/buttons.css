@@ -1,0 +1,178 @@
+/* --- Base Button (Acts as your 'Reply' button) --- */
+.app-button {
+    /* Layout & Box Model */
+    display: inline-flex; /* Better for centering text/icons */
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 5px 10px;
+
+    /* Typography */
+    font-family: inherit; /* inherit global InputSans */
+    /*font-size: 14px;*/
+    font-weight: 500; /* Slightly boosted weight for readability */
+    text-decoration: none;
+    color: rgb(102, 117, 127); /* Default text color (soft grey) */
+
+    /* Borders & Radius */
+    border: 1px solid rgb(225, 232, 237);
+    border-radius: 4px;
+
+    /* Default Background (The "Reply" styles) */
+    background-color: rgb(245, 248, 250);
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(245, 248, 250));
+    background-repeat: no-repeat;
+
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.144s ease;
+    user-select: none;
+}
+
+/* Mobile-friendly sizing without affecting desktop */
+@media (max-width: 640px) {
+    .app-button {
+        /* Ensure comfortable tap targets on small screens */
+        min-height: 38px;
+        padding: 6px 12px;
+        font-size: 15px;
+    }
+
+    /* Icon-only square buttons keep tap size */
+    .app-button.w-10,
+    .app-button.h-10 {
+        min-height: 40px;
+        min-width: 40px;
+    }
+}
+
+/* Disabled state (applies to <button disabled> and any element with [disabled]) */
+.app-button:disabled,
+.app-button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/*.app-button:disabled:hover,*/
+/*.app-button[disabled]:hover {*/
+/*    background-color: inherit;*/
+/*    background-image: none;*/
+/*    color: inherit;*/
+/*    border-color: inherit;*/
+/*    filter: none;*/
+/*    box-shadow: none;*/
+/*}*/
+
+/* Base Hover State */
+.app-button:hover {
+    /* Neutral hover background/border change */
+    background-color: rgb(225, 232, 237);
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(225, 232, 237));
+    color: rgb(41, 47, 51); /* Default hover text color */
+    border-color: rgb(200, 210, 220);
+}
+
+/* --- Variation: Primary ('Buy') --- */
+.app-button.primary {
+    background-color: var(--c-title);
+    /* Subtle highlight overlay for depth */
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+    background-repeat: no-repeat;
+    border-color: var(--c-title);
+    color: #ffffff;
+    font-weight: 600; /* Buy buttons often need more weight */
+}
+
+.app-button.primary:hover {
+    /* Slightly lighten the brand color for hover without a new variable */
+    filter: brightness(1.2);
+    box-shadow: 0 2px 4px rgba(0, 72, 96, 0.3);
+    color: #ffffff;
+}
+
+/* --- Variation: Connected to X (Gradient Black) --- */
+.app-button.x-connect {
+    background-image: linear-gradient(to bottom, #333333, #000000); /* Dark grey to Black */
+    background-color: #000000; /* Fallback */
+    border-color: #000000;
+    color: #ffffff;
+}
+
+.app-button.x-connect:hover {
+    background-image: linear-gradient(
+            to bottom,
+            #444444,
+            #1a1a1a
+    ); /* Slightly lighter gradient for active state */
+    border-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* --- Variation: Naked ('View Details') --- */
+.app-button.naked {
+    /* Resetting background and border */
+    background: none;
+    background-image: none;
+    border: none;
+
+    /* Using the brand color for visibility */
+    color: var(--c-title);
+
+    /* Keeping the original padding for a better touch target, but removing radius for a 'link' feel */
+    border-radius: 0;
+}
+
+.app-button.naked:hover {
+    /* Remove background changes inherited from base hover */
+    background: none;
+    background-image: none;
+
+    /* Subtle darkening and underline for clear interaction feedback */
+    color: #007094; /* Slightly darker shade of c-title */
+    text-decoration: underline;
+    filter: none; /* Remove filter */
+}
+
+/* --- Variation: Affirmative ('Yes') - Clean, text-based style --- */
+.app-button.affirmative {
+    color: #007a4a; /* Deep, sophisticated green text */
+    /*font-weight: 600;*/
+}
+
+.app-button.affirmative:hover {
+    /* Inherits base hover background/border. Only override text color */
+    color: #005934; /* Darker green for hover feedback */
+    filter: none;
+    box-shadow: none;
+}
+
+/* --- Variation: Negative ('No') - Clean, text-based style --- */
+.app-button.negative {
+    color: #a73300; /* Rich, complementary brown-red text */
+    /*font-weight: 600;*/
+}
+
+.app-button.negative:hover {
+    /* Inherits base hover background/border. Only override text color */
+    color: #802800; /* Darker red for hover feedback */
+    filter: none;
+    box-shadow: none;
+}
+
+/* --- Variation: Text-Only Link ('app-text-button') --- */
+.app-text-button {
+    box-sizing: border-box;
+
+    color: var(--c-faint);
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: all 0.144s ease;
+    user-select: none;
+}
+
+.app-text-button:hover {
+    /* Darken and underline on hover */
+    color: var(--c-base);
+    text-decoration: underline;
+}

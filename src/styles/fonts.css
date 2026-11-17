@@ -1,0 +1,95 @@
+/* GT America (Standard) — primary sans */
+@font-face {
+    font-family: 'GT America';
+    src: url('/fonts/GT-America/GT-America-Standard-Light-Trial.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('/fonts/GT-America/GT-America-Standard-Regular-Trial.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('/fonts/GT-America/GT-America-Standard-Medium-Trial.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('/fonts/GT-America/GT-America-Standard-Bold-Trial.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Input Sans family: Light (300), Regular (400), Medium (500), Bold (700) */
+@font-face {
+	font-family: 'InputSans';
+	src: url('/fonts/InputSans-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+	/* Center glyphs vertically within the line box */
+	ascent-override: 88%;
+	descent-override: 12%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: 'InputSans';
+	src: url('/fonts/InputSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	/* Center glyphs vertically within the line box */
+	ascent-override: 88%;
+	descent-override: 12%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: 'InputSans';
+	src: url('/fonts/InputSans-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	/* Center glyphs vertically within the line box */
+	ascent-override: 88%;
+	descent-override: 12%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: 'InputSans';
+	src: url('/fonts/InputSans-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	/* Center glyphs vertically within the line box */
+	ascent-override: 88%;
+	descent-override: 12%;
+	line-gap-override: 0%;
+}
+
+/* Monospace: Input Mono Regular */
+@font-face {
+	font-family: 'InputMono';
+	src: url('/fonts/InputMono-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	/* Font metric overrides to center glyphs vertically within line box */
+	/* Tweakable if needed: keep ascent+descent roughly ~100% and line-gap 0 */
+	ascent-override: 84%;
+	descent-override: 16%;
+	line-gap-override: 0%;
+}

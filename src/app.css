@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('./styles/fonts.css');
+@import url('./styles/buttons.css');
+@import url('./styles/colors.css');
+@import 'tippy.js/dist/tippy.css';
+
+@import 'tailwindcss';
+
+@source '../node_modules/layerchart/dist';
+@source "../node_modules/@friendofsvelte/progress/dist";
+
+
+/* Design tokens via Tailwind v4 @theme (reusable variables) */
+/* Make sure this always matches the variables ./styles/colors.css so that they can be used */
+@theme {
+    --color-title: var(--c-title);
+    --color-accent: var(--c-green);
+    --color-error: var(--c-error);
+    --color-red: var(--c-red);
+    --color-muted: var(--c-muted);
+    --color-base: var(--c-base);
+    --color-faint: var(--c-faint);
+    --color-highlight: var(--c-highlight);
+    --color-border: var(--c-border);
+
+    /* Fonts */
+    --font-sans: 'InputMono', 'GT America', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    --font-mono: 'InputMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+}
+
+/* Global font: GT America */
+html,
+body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 13px;
+    margin: 0;
+    height: 100%;
+}
+
+/* Monospace font usage */
+code,
+pre,
+kbd,
+samp,
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+/* Ultra-simple, text-first base styles */
+html,
+body {
+    color: #111;
+    background: #fff;
+    line-height: 1.5;
+}
+
+/* Form controls: consistent, minimal base styles */
+input:not([type='radio']):not([type='checkbox']):not([type='range']):not([type='color']):not(
+		[type='file']
+	),
+textarea,
+select {
+    box-sizing: border-box;
+    border: 1px solid var(--c-border);
+    border-radius: 0.25rem; /* rounded-sm */
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem; /* text-sm */
+    color: var(--c-base);
+    background: #fff;
+    outline: none;
+}
+
+input:not([type='radio']):not([type='checkbox']):not([type='range']):not([type='color']):not(
+		[type='file']
+	):focus,
+textarea:focus,
+select:focus {
+    border-color: var(--c-title);
+}
+
+/* Headings default to bold */
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+.dashed-bottom {
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+    border-bottom-color: var(--c-border);
+}
+
+/* Username link: no underline by default, underline on hover */
+.username {
+    text-decoration: none;
+}
+
+.username:hover {
+    text-decoration: underline;
+}
+
+/* Semantic container utility to center content consistently */
+.app-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--app-max-width);
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .app-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.app-scrollable-page {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 3rem;
+    overflow-y: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.app-scrollable-page::-webkit-scrollbar {
+    display: none;
+}
+
+/* ----- Mobile adjustments (do not affect desktop) ----- */
+@media (max-width: 640px) {
+    /* Slightly tighter base font on small screens */
+    html,
+    body {
+        font-size: 14px;
+    }
+
+    /* Container padding a bit tighter */
+    .app-container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    /* Page vertical rhythm tighter on mobile */
+    .app-scrollable-page {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Media elements scale within viewport */
+    img,
+    svg,
+    video,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Reduce oversized heading utilities a touch on mobile */
+    .text-2xl {
+        font-size: 1.375rem; /* ~22px */
+    }
+
+    .text-xl {
+        font-size: 1.125rem; /* ~18px */
+    }
+
+    .text-3xl {
+        font-size: 1.5rem; /* ~24px */
+    }
+
+    /* Common spacing utilities slightly tighter for small screens */
+    .px-4 {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .px-6 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .py-6 {
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .gap-4 {
+        gap: 0.75rem;
+    }
+
+    .gap-8 {
+        gap: 1rem;
+    }
+
+    .py-10 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    /* Prevent fixed-width utilities from overflowing viewport */
+    .w-64, .w-56, .w-48, .w-40, .w-36, .w-32, .w-28, .w-24 {
+        max-width: 100%;
+    }
+
+    /* Inputs: ensure comfortable tap targets */
+    input:not([type='radio']):not([type='checkbox']):not([type='range']):not([type='color']):not([type='file']),
+    textarea,
+    select {
+        min-height: 40px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Header: keep nav links compact on small screens */
+    .nav-lower a {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* Dialogs/Modals: fit within viewport with gutter */
+    dialog {
+        width: calc(100vw - 2rem);
+        max-width: 32em;
+    }
+
+    .max-w-lg {
+        max-width: calc(100vw - 2rem) !important;
+    }
+
+    /* Prevent long text and URLs from overflowing small screens */
+    .text-title,
+    .text-base,
+    .text-muted,
+    .text-faint,
+    .text-accent {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
+
+.tile-background {
+    background-image: url('/images/tile.png');
+    background-repeat: repeat;
+}
+
+.pane-shadow {
+    /* more pronounced symmetric shadow so it's visible on x-axis too */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+    /* ensure the shadow is not clipped by adjacent panes */
+    position: relative;
+    /* z-index removed to avoid creating an extra stacking context that clipped onboarding cards */
+}
+
+/* Tooltip font size (app-wide) */
+.tippy-box {
+    font-size: 12px;
+}

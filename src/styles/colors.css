@@ -1,0 +1,102 @@
+/* RULES FOR STYLING TEXT:
+ *
+ * YOU MUST USE THESE COLORS FOR STYLING ANY AND ALL TEXT THAT APPEARS ON THE WEBSITE WITH ZERO EXCEPTIONS
+ * TAILWIND WILL TAKE CARE OF IT SO THAT YOU CAN USE 'text-title' ETC.
+ */
+:root {
+    --c-title: #004860; /* for titles */
+
+    --c-red: #a73300;
+    --c-red-hover: #802800;
+
+    --c-green: #4CB781; /* for usernames */
+    --c-error: #EB5658; /* for error */
+    --c-base: #292f33; /* for paragraphs and 'body' text */
+    --c-muted: #52504a; /* for subtitles */
+    --c-faint: #75726b; /* use for really faint, small, inconsequential text */
+    /* for everything else just use bg-white and bg-black */
+
+    /*non-text colors*/
+    --c-highlight: #f1f5f9; /* light blue hover highlight */
+    --c-highlight-subtle: #f8fafc; /* extra-light hover for nested elements */
+    --c-border: #e0e8ea; /* for borders e0e1e5 */
+
+    /* binary and outcome palette (single source of truth) */
+    --c-binary-no: #EB5658;
+
+    /* categorical outcome palette (ordered) */
+    --c-outcome-1: #BFC0C8;
+    --c-outcome-2: #5F6AD1;
+    --c-outcome-3: #25B6CD;
+    --c-outcome-4: #4CB781;
+    --c-outcome-5: #F2C84C;
+    --c-outcome-6: #F2994B;
+    --c-outcome-7: #F8C7C0;
+    --c-outcome-8: #EB5658;
+
+    /* colors for generated company avatars etc */
+    --random-color-0: rgb(224, 81, 148);
+    --random-color-1: rgb(42, 161, 152);
+    --random-color-2: rgb(108, 92, 231);
+    --random-color-3: rgb(225, 112, 85);
+    --random-color-4: rgb(46, 204, 113);
+    --random-color-5: rgb(52, 152, 219);
+    --random-color-6: rgb(155, 89, 182);
+    --random-color-7: rgb(230, 126, 34);
+    --random-color-8: rgb(231, 76, 60);
+    --random-color-9: rgb(241, 196, 15);
+    --random-color-10: rgb(26, 188, 156);
+    --random-color-11: rgb(78, 205, 196);
+    --random-color-12: rgb(175, 122, 197);
+    --random-color-13: rgb(255, 107, 107);
+    --random-color-14: rgb(85, 172, 238);
+    --random-color-15: rgb(142, 68, 173);
+    --random-color-16: rgb(189, 59, 90);
+    --random-color-17: rgb(76, 209, 55);
+    --random-color-18: rgb(156, 39, 176);
+    --random-color-19: rgb(235, 152, 78);
+    --random-color-20: rgb(33, 150, 243);
+    --random-color-21: rgb(217, 80, 48);
+    --random-color-22: rgb(95, 39, 205);
+    --random-color-23: rgb(240, 98, 146);
+    --random-color-24: rgb(121, 85, 72);
+    --random-color-25: rgb(255, 193, 7);
+    --random-color-26: rgb(0, 188, 212);
+    --random-color-27: rgb(92, 107, 192);
+    --random-color-28: rgb(174, 213, 129);
+    --random-color-29: rgb(236, 64, 122);
+    --random-color-30: rgb(38, 166, 154);
+    --random-color-31: rgb(186, 104, 200);
+}
+
+.hover-highlight,
+.hover-highlight-secondary {
+    transition: background-color 0.14s ease-out;
+}
+
+.hover-highlight:hover {
+    background: var(--c-highlight) !important;
+}
+
+.hover-highlight-secondary:hover {
+    background: var(--c-highlight-subtle) !important;
+}
+
+.comment-highlight {
+    background-color: #fdf4dd;
+    transition: background-color 0.3s ease-out;
+}
+
+/* Fade the yellow highlight out smoothly */
+.comment-highlight-fade {
+    animation: commentHighlightFade 2s ease-out forwards;
+}
+
+@keyframes commentHighlightFade {
+    0% {
+        background-color: #fdf4dd;
+    }
+    100% {
+        background-color: transparent;
+    }
+}

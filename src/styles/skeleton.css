@@ -1,0 +1,42 @@
+/*only targets child divs*/
+.skeleton-container {
+	> div:not(.flex) {
+		background: linear-gradient(
+			90deg,
+			var(--bgBaseOffBase) 25%,
+			var(--bgBorder) 50%,
+			var(--bgBaseOffBase) 75%
+		);
+		background-size: 200% 100%;
+		animation: skeleton-loading 1.5s infinite;
+		border-radius: 6px;
+	}
+
+	.bg-gray-200,
+	.bg-gray-300,
+	[class*='rounded'] {
+		background: linear-gradient(
+			90deg,
+			var(--bgBaseOffBase) 25%,
+			var(--bgBorder) 50%,
+			var(--bgBaseOffBase) 75%
+		);
+		background-size: 200% 100%;
+		animation: skeleton-loading 1.5s infinite;
+		border-radius: 6px;
+	}
+
+	.flex:not([class*='bg-']):not([class*='rounded']) {
+		background: none;
+		animation: none;
+	}
+}
+
+@keyframes skeleton-loading {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+}
